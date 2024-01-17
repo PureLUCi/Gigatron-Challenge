@@ -28,7 +28,7 @@ const EditImage = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             return res.status(200).json({ status: 200, message: "Successfully deleted image" });
         }
         catch (err) {
-            console.error(`[!] Failed to delete image at ${imagePath}:`, err);
+            console.error(`[!] Failed to delete image at ${imagePath}:, does not exist...`);
             return res.status(500).json({ status: 500, message: "Failed to delete image" });
         }
     }

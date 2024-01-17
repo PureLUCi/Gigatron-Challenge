@@ -16,7 +16,7 @@ const EditImage = async (req: Request, res: Response) => {
             console.log(`[OK] Successfully deleted image at ${imagePath}`);
             return res.status(200).json({status:200,message:"Successfully deleted image"});
         } catch (err) {
-            console.error(`[!] Failed to delete image at ${imagePath}:`, err);
+            console.error(`[!] Failed to delete image at ${imagePath}:, does not exist...`);
             return res.status(500).json({status:500,message:"Failed to delete image"});
         }
     }
