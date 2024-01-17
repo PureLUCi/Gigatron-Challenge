@@ -6,6 +6,9 @@ module.exports = {
       "black-900":"#060708",
       "black-500":"#363A3D",
       "black-400":"#686B6E",
+
+      "red":"#D0302F",
+      "green":"#4AC97E",
     },
 
     borderRadius: {

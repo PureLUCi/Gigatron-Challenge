@@ -27,3 +27,17 @@
   border: 1px dashed var(--gradients-green-blue-day-blue-500, #4D62E5);
   background: var(--Noble-Black-800, #0D0F10);
 }
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

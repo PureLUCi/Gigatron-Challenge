@@ -4,12 +4,10 @@ WORKDIR /app
 
 COPY package.json .
 
-RUN apt-get update && apt-get install -y yarn
-
 RUN yarn install
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 1313
 
-CMD ["yarn", "dev"]
+CMD ["yarn", "start"]

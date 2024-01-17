@@ -3,3 +3,5 @@ client/node_modules/
 
 # Ignore node_modules in server
 server/node_modules/
+
+.DS_Store
