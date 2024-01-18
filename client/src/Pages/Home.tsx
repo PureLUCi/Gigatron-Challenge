@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 const Home = () => {
 
-    const [showNotification, setShowNotification] = useState<boolean>(false);
     const [notificationMessage, setNotificationMessage] = useState<string>("");
     const [imageURL, setImageURL] = useState<string>("");
     const [uploading, setUploading] = useState<boolean>(false);
@@ -14,16 +13,17 @@ const Home = () => {
         formData.append('image', e.target.files[0]);
         SendPostImage("upload", formData).then((response) => {
             if (response.status != 200) {
-                setShowNotification(true);
                 setNotificationMessage("File upload failed, is it an image?");
                 setUploading(false);
             }
             else {
-                setShowNotification(true);
                 setNotificationMessage("Image uploaded successfully!");
                 setImageURL(response.imageURL);
                 setUploading(false);
             }
+        }).catch(() => {
+            setNotificationMessage("File upload failed, is server online?");
+            setUploading(false);
         });
     }
 
@@ -32,7 +32,7 @@ const Home = () => {
         <div className="w-screen h-screen bg-black-900 flex flex-col items-center justify-center relative">
             <h1 className="title gradient">Image Resizer</h1>
             {
-                showNotification &&
+                notificationMessage!="" &&
                 <div className={`absolute top-[64px] flex flex-col items-center gap-[10px] ${notificationMessage.includes("failed") ? "text-red" : "text-green"} bg-black-800 p-10 rounded-md fade-in`}>
                     <h1 className='text-lg'>{notificationMessage}</h1>
                     {
